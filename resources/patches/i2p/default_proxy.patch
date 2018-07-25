@@ -1,0 +1,11 @@
+--- a/chrome/browser/ui/browser_ui_prefs.cc
++++ b/chrome/browser/ui/browser_ui_prefs.cc
+@@ -90,7 +90,7 @@ void RegisterBrowserUserPrefs(user_prefs
+ #if BUILDFLAG(ENABLE_WEBRTC)
+   // TODO(guoweis): Remove next 2 options at M50.
+   registry->RegisterBooleanPref(prefs::kWebRTCMultipleRoutesEnabled, true);
+-  registry->RegisterBooleanPref(prefs::kWebRTCNonProxiedUdpEnabled, true);
++  registry->RegisterBooleanPref(prefs::kWebRTCNonProxiedUdpEnabled, false);
+   registry->RegisterStringPref(prefs::kWebRTCIPHandlingPolicy,
+                                content::kWebRTCIPHandlingDefault);
+   registry->RegisterStringPref(prefs::kWebRTCUDPPortRange, std::string());
