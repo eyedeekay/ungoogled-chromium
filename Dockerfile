@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:stable-backports
 RUN apt-get update
 RUN apt-get install -y debhelper clang-6.0 lld-6.0 llvm-6.0-dev python-jinja2 \
 	gsettings-desktop-schemas-dev xvfb libre2-dev libelf-dev libvpx-dev \
