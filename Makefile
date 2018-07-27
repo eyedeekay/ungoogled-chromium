@@ -85,5 +85,4 @@ docker-build: docker
 	docker rm -f ungoogled-chromium
 	docker run -t -i \
 		--name ungoogled-chromium \
-		-v ungoogler:/home/ungoogler/ \
 		eyedeekay/ungoogled-chromium
