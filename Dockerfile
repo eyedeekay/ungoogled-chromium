@@ -18,5 +18,6 @@ COPY . /home/ungoogler/build
 RUN chown -R ungoogler:ungoogler /home/ungoogler/build
 USER ungoogler
 WORKDIR /home/ungoogler/build
+VOLUME /home/ungoogler/
 RUN ls
 CMD make build-deb
