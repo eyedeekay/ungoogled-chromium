@@ -1,4 +1,4 @@
-FROM debian:sid
+FROM debian:buster
 RUN apt-get update
 RUN apt-get install -y clang-6.0 lld-6.0 llvm-6.0-dev python-jinja2 \
 	gsettings-desktop-schemas-dev xvfb libre2-dev libelf-dev libvpx-dev \
