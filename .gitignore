@@ -4,6 +4,7 @@ __pycache__/
 
 # Ignore buildspace directory
 /buildspace
+buildspace*/
 
 # Ignore macOS Finder meta
 .DS_Store
