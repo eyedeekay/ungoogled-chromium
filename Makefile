@@ -47,7 +47,6 @@ build-deb: gen
 	/bin/rm -rf ./buildspace/tree/debian
 	./buildkit-launcher.py genpkg debian --flavor $(deb_deriv)
 	cd buildspace/tree && \
-		dpkg-checkbuilddeps && \
 		dpkg-buildpackage -b -uc
 
 build: gen
@@ -82,7 +81,7 @@ docker:
 	docker build -f Dockerfile -t eyedeekay/ungoogled-chromium .
 
 docker-build: docker
-	docker rm -f ungoogled-chromium
+	docker rm -f ungoogled-chromium; true
 	docker run -t -i \
 		--name ungoogled-chromium \
 		eyedeekay/ungoogled-chromium
