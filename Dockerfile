@@ -1,4 +1,11 @@
-FROM debian:sid
+FROM debian:stable-backports
+RUN echo 'deb-src http://ftp.debian.org/debian stable main' >> /etc/apt/sources.list
+RUN echo 'Package: *' >> /etc/apt/preferences.d/be-stable
+RUN echo 'Pin: release a=stable-backports' >> /etc/apt/preferences.d/be-stable
+RUN echo 'Pin-Priority: 100' >> /etc/apt/preferences.d/be-stable
+RUN echo 'Package: *' >> /etc/apt/preferences.d/be-stable
+RUN echo 'Pin: release a=stable' >> /etc/apt/preferences.d/be-stable
+RUN echo 'Pin-Priority: 999' >> /etc/apt/preferences.d/be-stable
 RUN apt-get update
 RUN apt-get install -y clang-6.0 lld-6.0 llvm-6.0-dev python-jinja2 \
 	gsettings-desktop-schemas-dev xvfb libre2-dev libelf-dev libvpx-dev \
@@ -13,10 +20,18 @@ RUN apt-get install -y clang-6.0 lld-6.0 llvm-6.0-dev python-jinja2 \
 	libwebp-dev libxtst-dev libgtk-3-dev liblcms2-dev libpulse-dev \
     libasound2-dev libusb-1.0-0-dev libevent-dev libgcrypt20-dev libva-dev \
     libvpx-dev debhelper
+RUN apt-get build-dep -y chromium
 RUN adduser --disabled-password --gecos 'ungoogler,,,,' ungoogler
-COPY . /home/ungoogler/build
+RUN mkdir -p /home/ungoogler/build
+ADD https://github.com/Eloston/ungoogled-chromium/archive/67.0.3396.87-2.tar.gz /home/ungoogler/67.tar.gz
+RUN cd /home/ungoogler/ && \
+    tar xvzf /home/ungoogler/67.tar.gz && \
+    cp -r /home/ungoogler/ung*/* /home/ungoogler/build/
+COPY resources/config_bundles/proxy_i2p/ /home/ungoogler/build/resources/config_bundles/proxy_i2p/
+COPY resources/patches/i2p/ /home/ungoogler/build/resources/patches/i2p/
+COPY Makefile /home/ungoogler/build/
 RUN chown -R ungoogler:ungoogler /home/ungoogler/build
 USER ungoogler
 WORKDIR /home/ungoogler/build
 RUN ls
-CMD make build
+CMD make build-deb
