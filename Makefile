@@ -76,7 +76,7 @@ deps:
 		libgles2-mesa-dev mesa-common-dev libxt-dev libgbm-dev libxss-dev \
 		libpci-dev libcap-dev libdrm-dev libflac-dev libudev-dev libopus-dev \
 		libwebp-dev libxtst-dev libgtk-3-dev liblcms2-dev libpulse-dev libasound2-dev \
-		libusb-1.0-0-dev libevent-dev (>= 1.4.13) libgcrypt20-dev libva-dev
+		libusb-1.0-0-dev libevent-dev libgcrypt20-dev libva-dev
 
 docker:
 	docker build -f Dockerfile -t eyedeekay/ungoogled-chromium .
