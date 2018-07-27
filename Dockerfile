@@ -17,7 +17,8 @@ RUN adduser --disabled-password --gecos 'ungoogler,,,,' ungoogler
 COPY . /home/ungoogler/build
 RUN chown -R ungoogler:ungoogler /home/ungoogler/build
 USER ungoogler
-WORKDIR /home/ungoogler/build
 VOLUME /home/ungoogler/
+WORKDIR /home/ungoogler/build
+
 RUN ls
 CMD make build-deb
