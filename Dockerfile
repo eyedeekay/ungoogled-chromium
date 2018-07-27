@@ -1,4 +1,4 @@
-FROM debian:stretch-backports
+FROM debian:sid
 RUN apt-get update
 RUN apt-get install -y -t stretch-backports clang-6.0 lld-6.0 llvm-6.0-dev python-jinja2 \
 	gsettings-desktop-schemas-dev xvfb libre2-dev libelf-dev libvpx-dev \
