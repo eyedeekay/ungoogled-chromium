@@ -82,4 +82,5 @@ docker:
 	docker build -f Dockerfile -t eyedeekay/ungoogled-chromium .
 
 docker-build: docker
+	docker rm -f ungoogled-chromium
 	docker run --name ungoogled-chromium -t eyedeekay/ungoogled-chromium
