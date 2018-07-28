@@ -20,7 +20,7 @@ RUN apt-get install -y clang-6.0 lld-6.0 llvm-6.0-dev python-jinja2 \
 	libpci-dev libcap-dev libdrm-dev libflac-dev libudev-dev libopus-dev \
 	libwebp-dev libxtst-dev libgtk-3-dev liblcms2-dev libpulse-dev \
     libasound2-dev libusb-1.0-0-dev libevent-dev libgcrypt20-dev libva-dev \
-    libvpx-dev debhelper libglew-dev
+    libvpx-dev debhelper libglew-dev quilt
 RUN apt-get build-dep -y chromium
 RUN adduser --disabled-password --gecos 'ungoogler,,,,' ungoogler
 #RUN mkdir -p /home/ungoogler/build
