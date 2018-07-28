@@ -26,8 +26,8 @@ RUN adduser --disabled-password --gecos 'ungoogler,,,,' ungoogler
 #RUN mkdir -p /home/ungoogler/build
 ADD https://github.com/Eloston/ungoogled-chromium/archive/67.0.3396.87-2.tar.gz /home/ungoogler/67.tar.gz
 RUN cd /home/ungoogler/ && \
-    #tar xvzf /home/ungoogler/67.tar.gz && \
-    #cp -r /home/ungoogler/ung*/* /home/ungoogler/build/
+    tar xvzf /home/ungoogler/67.tar.gz && \
+    cp -r /home/ungoogler/ung*/* /home/ungoogler/build/
 COPY resources/config_bundles/proxy_i2p/ /home/ungoogler/build/resources/config_bundles/proxy_i2p/
 COPY resources/patches/i2p/ /home/ungoogler/build/resources/patches/i2p/
 COPY Makefile /home/ungoogler/build/
