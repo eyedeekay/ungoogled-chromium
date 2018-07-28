@@ -1,11 +1,11 @@
 FROM debian:stable-backports
-RUN echo 'deb-src http://ftp.debian.org/debian stable main' >> /etc/apt/sources.list
-RUN echo 'Package: *' >> /etc/apt/preferences.d/be-stable
-RUN echo 'Pin: release a=stable-backports' >> /etc/apt/preferences.d/be-stable
-RUN echo 'Pin-Priority: 100' >> /etc/apt/preferences.d/be-stable
-RUN echo 'Package: *' >> /etc/apt/preferences.d/be-stable
-RUN echo 'Pin: release a=stable' >> /etc/apt/preferences.d/be-stable
-RUN echo 'Pin-Priority: 999' >> /etc/apt/preferences.d/be-stable
+#RUN echo 'deb-src http://ftp.debian.org/debian stable main' >> /etc/apt/sources.list
+#RUN echo 'Package: *' >> /etc/apt/preferences.d/be-stable
+#RUN echo 'Pin: release a=stable-backports' >> /etc/apt/preferences.d/be-stable
+#RUN echo 'Pin-Priority: 100' >> /etc/apt/preferences.d/be-stable
+#RUN echo 'Package: *' >> /etc/apt/preferences.d/be-stable
+#RUN echo 'Pin: release a=stable' >> /etc/apt/preferences.d/be-stable
+#RUN echo 'Pin-Priority: 999' >> /etc/apt/preferences.d/be-stable
 RUN apt-get update
 RUN apt-get install -y clang-6.0 lld-6.0 llvm-6.0-dev python-jinja2 \
 	gsettings-desktop-schemas-dev xvfb libre2-dev libelf-dev libvpx-dev \
