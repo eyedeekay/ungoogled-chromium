@@ -35,5 +35,5 @@ COPY . /home/ungoogler/build
 RUN chown -R ungoogler:ungoogler /home/ungoogler/build
 USER ungoogler
 WORKDIR /home/ungoogler/build
-RUN ls
+RUN quilt refresh
 CMD make build-deb
