@@ -13,7 +13,7 @@ docker-build: update docker
 		eyedeekay/ungoogled-chromium
 
 update:
-	git pull
+	git pull --force
 
 setup:
 	mkdir -p "buildspace-$(use_i2p)$(deriv)/downloads"
