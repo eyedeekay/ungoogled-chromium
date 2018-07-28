@@ -6,6 +6,15 @@ WD=$(PWD)
 
 usei2p=i2p_
 
+docker-build: update docker
+	docker rm -f ungoogled-chromium; true
+	docker run -t -i \
+		--name ungoogled-chromium \
+		eyedeekay/ungoogled-chromium
+
+update:
+	git pull
+
 setup:
 	mkdir -p "buildspace-$(use_i2p)$(deriv)/downloads"
 	ln -sf buildspace-$(use_i2p)$(deriv) buildspace
@@ -80,8 +89,3 @@ deps:
 docker:
 	docker build -f Dockerfile -t eyedeekay/ungoogled-chromium .
 
-docker-build: docker
-	docker rm -f ungoogled-chromium; true
-	docker run -t -i \
-		--name ungoogled-chromium \
-		eyedeekay/ungoogled-chromium
